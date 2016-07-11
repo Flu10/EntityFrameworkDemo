@@ -52,29 +52,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseNomEntity.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="HrContext\HrContext.cs" />
     <Compile Include="Migrations\201607080825531_InitialMigration.cs" />
     <Compile Include="Migrations\201607080825531_InitialMigration.Designer.cs">
       <DependentUpon>201607080825531_InitialMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201607080840278_AddCustomConventions.cs" />
-    <Compile Include="Migrations\201607080840278_AddCustomConventions.Designer.cs">
-      <DependentUpon>201607080840278_AddCustomConventions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201607080908358_NewMigration.cs" />
-    <Compile Include="Migrations\201607080908358_NewMigration.Designer.cs">
-      <DependentUpon>201607080908358_NewMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201607080923288_AddUniqeEmailKey.cs" />
-    <Compile Include="Migrations\201607080923288_AddUniqeEmailKey.Designer.cs">
-      <DependentUpon>201607080923288_AddUniqeEmailKey.cs</DependentUpon>
+    <Compile Include="Migrations\201607111352302_AllMigrationsInOneMig.cs" />
+    <Compile Include="Migrations\201607111352302_AllMigrationsInOneMig.Designer.cs">
+      <DependentUpon>201607111352302_AllMigrationsInOneMig.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Department.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\Job.cs" />
     <Compile Include="Model\Location.cs" />
+    <Compile Include="Model\Nomenclatures\Gender.cs" />
+    <Compile Include="Model\Nomenclatures\Level.cs" />
+    <Compile Include="Model\Project.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -86,14 +82,8 @@
     <EmbeddedResource Include="Migrations\201607080825531_InitialMigration.resx">
       <DependentUpon>201607080825531_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201607080840278_AddCustomConventions.resx">
-      <DependentUpon>201607080840278_AddCustomConventions.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201607080908358_NewMigration.resx">
-      <DependentUpon>201607080908358_NewMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201607080923288_AddUniqeEmailKey.resx">
-      <DependentUpon>201607080923288_AddUniqeEmailKey.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201607111352302_AllMigrationsInOneMig.resx">
+      <DependentUpon>201607111352302_AllMigrationsInOneMig.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -7,13 +7,13 @@ namespace EntityFrameworkDemo.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddCustomConventions : IMigrationMetadata
+    public sealed partial class AllMigrationsInOneMig : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddCustomConventions));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AllMigrationsInOneMig));
         
         string IMigrationMetadata.Id
         {
-            get { return "201607080840278_AddCustomConventions"; }
+            get { return "201607111352302_AllMigrationsInOneMig"; }
         }
         
         string IMigrationMetadata.Source

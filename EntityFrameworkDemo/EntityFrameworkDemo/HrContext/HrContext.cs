@@ -6,7 +6,8 @@
     using System.Data.Entity.Infrastructure.Annotations;
     using System.Data.Entity.ModelConfiguration.Conventions;
     using Model;
-
+    using Model.Nomenclatures;
+    using System.Linq;
     public class HrContext : DbContext
     {
         public HrContext() : base("Hr")
@@ -16,14 +17,19 @@
 
         private void Init()
         {
-            Configuration.LazyLoadingEnabled = false;
+            Configuration.LazyLoadingEnabled = true;
+            Configuration.ProxyCreationEnabled = true;
         }
 
         public DbSet<Job> Jobs { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Level> Levels { get; set; }
+        public DbSet<Gender> Genders { get; set; }
+        public DbSet<Project>Projects { get; set; }
 
+        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -39,6 +45,16 @@
                     IndexAnnotation.AnnotationName,
                     new IndexAnnotation(
                         new IndexAttribute("UX_Email") { IsUnique = true }));
+
+            modelBuilder.Entity<Employee>()
+                .HasMany<Project>(s => s.Projects)
+                .WithMany(c => c.Employees)
+                .Map(cs =>
+                {
+                    cs.MapLeftKey("EmployeeId");
+                    cs.MapRightKey("ProjectId");
+                    cs.ToTable("EmployeeProject", "Hr");
+                });
         }
 
         private void ApplyCustomConventions(DbModelBuilder modelBuilder)
@@ -52,6 +68,7 @@
             modelBuilder.Types().Configure(c =>
             {
                 c.Property("Id").HasColumnName(c.ClrType.Name + "Id");
+                
             });
         }
     }
